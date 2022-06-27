@@ -1,4 +1,4 @@
-exports.exampleModel = [
+const flights = [
     {
         title: "flight to canada",
         time: "1pm",
@@ -6,3 +6,5 @@ exports.exampleModel = [
         date: "26-06-2022"
     }
 ];
+
+module.exports = flights;
