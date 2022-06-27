@@ -31,12 +31,12 @@ exports.getFlight = async (req, res) => {
 // create new flight
 exports.createFlight = async (req, res) => {
     try {
-        const { title, time, place, date } = await req.body;
+        const { title, time, price, date } = await req.body;
         const newFlight = {
             id: uuid(),
             title,
             time,
-            place,
+            price,
             date
         }
 
@@ -44,7 +44,7 @@ exports.createFlight = async (req, res) => {
 
         res.status(200).json({ 
             message: "Flight created",
-            flight
+            newFlight
         });
     } catch (err) {
         res.status(500).json({ message: err.message });   
@@ -56,11 +56,11 @@ exports.updateFlight = async (req, res) => {
     try {
         let id = req.params.id;
         const flight = Flights.find(flight => flight.id === id);
-        const { title, time, place, date } = await req.body;
+        const { title, time, price, date } = await req.body;
         
         flight.title = title;
         flight.time = time;
-        flight.place = place;
+        flight.price = price;
         flight.date = date;
     
         res.status(200).json({ 
