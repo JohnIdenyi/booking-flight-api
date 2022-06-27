@@ -61,7 +61,7 @@ exports.updateFlight = async (req, res) => {
         flight.title = title;
         flight.time = time;
         flight.place = place;
-        flight.date = date
+        flight.date = date;
     
         res.status(200).json({ 
             message: "Flight updated",
